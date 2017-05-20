@@ -3,32 +3,110 @@
   
     
     <entry>
-      <title><![CDATA[airxuia’blog!]]></title>
-      <url>/2017/04/28/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+      <title><![CDATA[最新 MAC 上基于 Github + Hexo 博客搭建教程]]></title>
+      <url>/2017/05/20/%E6%9C%80%E6%96%B0%20MAC%20%E4%B8%8A%E5%9F%BA%E4%BA%8E%20Github%20+%20Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>折腾了大半天的时间终于搭建好了自己的博客。在网上随便一搜就有一大堆搭建博客的教程，那为什么还要再写一遍呢。原因如下：</p>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: [Deployment</p>
+<ul>
+<li>网上绝大多数教程是基于 Windows 系统搭建的博客，在苹果系统上搭建博客的教程不多。</li>
+<li>记录搭建博客过程中踩过的坑，帮助更多的小伙伴。 </li>
+</ul>
+<p>言归正传，接下来进入博客的搭建过程。</p>
+<h3 id="1-Node-js-下载和安装"><a href="#1-Node-js-下载和安装" class="headerlink" title="1. Node.js 下载和安装"></a>1. Node.js 下载和安装</h3><p>下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">Node.js 下载地址</a></p>
+<h3 id="2-Git-的下载和安装"><a href="#2-Git-的下载和安装" class="headerlink" title="2. Git 的下载和安装"></a>2. Git 的下载和安装</h3><p>下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="external">Git 下载地址</a></p>
+<h3 id="3-Hexo-安装（重点）"><a href="#3-Hexo-安装（重点）" class="headerlink" title="3. Hexo 安装（重点）"></a>3. Hexo 安装（重点）</h3><ul>
+<li><p>打开苹果电脑终端</p>
+</li>
+<li><p>输入安装命令 </p>
+<p><code>$ sudo npm install -g hexo-cli</code></p>
+</li>
+<li><p>输入检验是否安装成功命令</p>
+<p><code>$ hexo -v</code></p>
+<p>若安装成功，会出现如下信息：</p>
+<p><img src="http://i4.buimg.com/588926/a4a7f68b964afd96.jpg" alt=""></p>
+</li>
+<li><p>在 Mac 的 User 目录下新建文件夹，取名 Hexo</p>
+</li>
+<li><p>输入下面的命令，进入到 Hexo 目录下</p>
+<p><code>$ cd Hexo/</code></p>
+</li>
+<li><p>输入下面命令，随后会在 Hexo 文件夹下简历网站所需要的所有文件</p>
+<p><code>$ hexo init</code></p>
+</li>
+<li><p>现在，一个本地博客已经搭建成功，可以分别输入以下命令进行验证：</p>
+<p><code>$ hexo g</code> –生成</p>
+<p><code>$ hexo s</code> –启动服务本地预览</p>
+<p>服务开启成功后到浏览器中输入 localhost:4000，这时候一个博客便映入眼帘。通过在终端输入Ctrl + C 可以停止本地预览</p>
+</li>
+</ul>
+<h3 id="4-Github-Pages-设置"><a href="#4-Github-Pages-设置" class="headerlink" title="4. Github Pages 设置"></a>4. Github Pages 设置</h3><p>该部分可参考博客 <a href="https://adsuper.github.io/2017/03/19/%E5%9F%BA%E4%BA%8EHexo-Github-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0-1/" target="_blank" rel="external">珞璃之神-基于Hexo-Github—搭建个人博客笔记</a> 的第三部分「github Pages设置」</p>
+<h3 id="5-更换博客主题"><a href="#5-更换博客主题" class="headerlink" title="5.  更换博客主题"></a>5.  更换博客主题</h3><p>在第 2 部分预览的时候，默认加载的主题是「landscape」。不过个人感觉「next」主题似乎更好看。</p>
+<p><img src="http://i2.muimg.com/588926/9af6bd168a6db7c0.jpg" alt=""></p>
+<p>自个体会下。</p>
+<p>具体更换主题步骤如下：</p>
+<ul>
+<li><p>复制主题，在终端输入以下命令</p>
+<p><code>$ git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
+</li>
+<li><p>配置 Hexo 目录下的 config.yml 配置文件中的 theme 属性，将其设置为 next</p>
+</li>
+<li><p>启用 next 主题</p>
+<p><code>$ cd themes/next</code> –在终端上从 Hexo 根目录进入你复制的主题目录</p>
+<p><code>$ git pull</code></p>
+<p><code>$ hexo clean</code> –清除默认的缓存主题</p>
+<p><code>$ hexo g</code> –生成</p>
+<p><code>$ hexo s</code> –启动本地预览</p>
+</li>
+<li><p>到浏览器中输入 localhost:4000 查看 next 主题是否更换成功</p>
+</li>
+</ul>
+<p>至此，基于Github + Hexo 的博客也已经搭建成功！</p>
+<h3 id="6-一键发布博客"><a href="#6-一键发布博客" class="headerlink" title="6. 一键发布博客"></a>6. 一键发布博客</h3><p>接下来，教大家一键部署博客到 Github 的方法。</p>
+<p>此部分完全参考博客 <a href="https://smartbeng.github.io/2017/03/26/blogFinish/" target="_blank" rel="external">smartbeng-最适合新手的 GitHub + Hexo 「大话」博客搭建教程</a> ，内容如下：</p>
+<ol>
+<li><p>进入 Hexo 的根目录 接着操作以下命令</p>
+<p><code>$ cd Hexo</code></p>
+<p>注意 1：现在我们需要clone我们自己的GitHub仓库了</p>
+<p>注意 3：切记下面是<strong>你自己的仓库名</strong> , 把名字都改过来 , 下面我用的是我的仓库名字</p>
+<p><code>$ git clone https://github.com/storm/</code></p>
+<p><code>strom.github.io.git .deploy/storm.github.io</code></p>
+<p>翻译下这条命令的意思</p>
+<p>将我们之前创建的GitHub 仓库克隆到本地 , 命令会新建一个目录叫做.deploy用于存放克隆的代码。</p>
+<p>然后会在.deploy文件夹下生成一个 <strong>你的名字.github.io</strong> 的文件夹用于存放文件</p>
+</li>
+<li><p>接着在 Hexo <strong>根目录</strong>下创建一个 .txt 文件 , 把下面的命令复制进去</p>
+</li>
+<li><p>注意 ：<strong>你的GitHub名字</strong>是什么就<strong>把你的名字全部改到下面</strong> , 细心点（下面加粗的部分就是待修改的地方）</p>
+<p>hexo generate</p>
+<p>cp -R public/<em> .deploy/<em>*jacman</em></em>.github.io</p>
+<p>cd .deploy/<strong>jacman</strong>.github.io</p>
+<p>git add .</p>
+<p>git commit -m “update”</p>
+<p>git push origin master</p>
+</li>
+<li><p>将这个 <strong>.txt 文件的后缀改成 .sh</strong> , 它就变成了脚本文件 , 我们就将文件改成 <strong>deploy.sh</strong> 吧！意思就是部署</p>
+</li>
+<li><p>从此以后需要部署本地博客到 GitHub , 直接把脚本拖入到终端运行即可。</p>
+</li>
+</ol>
+<p>该部分需要注意的事项：</p>
+<ol>
+<li>脚本拖入终端运行时一定要切换到 Hexo 目录下</li>
+<li>运行如显示 Permission denied 说明没有权限，此时需要对脚本进行赋予权限的操作：在终端输入chmod 777，接着拖入脚本，再按回车，权限赋予成功后再把脚本拖入终端运行即可（运行脚本一定要切换到 Hexo目录下）。</li>
+</ol>
+<h3 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h3><p>搭建博客过程中会踩到许多坑，其中很多问题都是由于没有切换到 Hexo 目录下造成的。若能在终端上切换到正确的目录下进行操作，搭建博客的过程也会顺利不少。</p>
 ]]></content>
       
         <categories>
             
-            <category> 编程 </category>
+            <category> Hexo </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> test </tag>
-            
-            <tag> gogo </tag>
+            <tag> Hexo </tag>
             
         </tags>
         
