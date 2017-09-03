@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title><![CDATA[“java.lang.ExceptionInInitializerError 解析”]]></title>
+      <url>/2017/09/03/%E2%80%9Cjava-lang-ExceptionInInitializerError%20%E8%A7%A3%E6%9E%90%E2%80%9D/</url>
+      <content type="html"><![CDATA[<p>今天在火车站浏览「知识星球」的时候，发现辰星大佬也碰到了 java.lang.ExceptionInInitializerError 这个问题，再次研究一番终于搞懂了这个异常发生的原因（之前项目中也碰到过这个问题，但是没有搞懂原因…菜鸡捂脸）。</p>
+<a id="more"></a>
+<p>根据字面理解这是个初始化异常的问题。往往在单例模式的时候会碰到，是由于初始化顺序不对造成的。</p>
+<p>上例子（例子来自<a href="http://blog.csdn.net/fykhlp/article/details/6236316" target="_blank" rel="external">java.lang.ExceptionInInitializerError的原因</a>）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Example example = <span class="keyword">new</span> Example();  </div><div class="line">      </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;Integer,Boolean&gt; test =   </div><div class="line">        <span class="keyword">new</span> HashMap&lt;Integer, Boolean&gt;();  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Example</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        test.put(<span class="number">1</span>, <span class="keyword">true</span>);  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Example <span class="title">getInstance</span><span class="params">()</span>  </span></div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">return</span> example;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们知道当加载一个类的时候静态变量是最先开始进行初始化的，并且是<strong>按顺序</strong>进行的。因此 Example 类正常进行初始化的顺序应该是先 example 后 test。但是我们发现 example 初始化是构造函数 Example（）, 它里面调用了 test，要知道此时 test 还没有进行初始化，这也就造成了 ExceptionInInitializerError 问题。</p>
+<p>PS：上次碰到这个问题没有搞懂原因就放弃了，要不是今天偶然看到至今还是不明白，深刻反思，「不要成为自己讨厌的那种人」。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Exception </tag>
+            
+            <tag> 初始化 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android 手机存储那些事儿]]></title>
       <url>/2017/08/31/Android-%E6%89%8B%E6%9C%BA%E5%AD%98%E5%82%A8%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/</url>
       <content type="html"><![CDATA[<p>最近项目开发新增清除缓存需求，于是查阅相关资料并结合功能的实现过程，对手机存储的相关知识做下总结。</p>
