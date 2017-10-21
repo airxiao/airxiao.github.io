@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title><![CDATA[如何获取Android系统挂载U盘的路径]]></title>
+      <url>/2017/10/21/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96Android%E7%B3%BB%E7%BB%9F%E6%8C%82%E8%BD%BDU%E7%9B%98%E7%9A%84%E8%B7%AF%E5%BE%84/</url>
+      <content type="html"><![CDATA[<p>最近项目开发中碰到这样一个需求：用户在定制的 Android 设备上插入 U 盘，然后在应用内导入 U 盘里的文件内容。</p>
+<a id="more"></a>
+<p>问题在于如何获取 U 盘的路径，网上搜索后大多数都是采用广播监听的方式来获取 U 盘的路径。但是如果 U 盘在设备开机之前就插着，这样登录应用后就获取不到 U 盘的路径了，于是乎此种方法作罢。</p>
+<p>这时候伟大同事告诉了另外一种方法，就是从文件中读取路径。</p>
+<p>U 盘在插入系统后，如果系统检测到 U盘，便会在系统的 <strong>proc</strong> 目录的 <strong>mounts</strong> 文件内产生一条记录。</p>
+<p><img src="http://ovjvgviry.bkt.clouddn.com/17-10-21/62630543.jpg" alt=""></p>
+<p>可以看到该文件记录了 U 盘每一次插入的相关信息（看不清楚？好吧，我摘取其中的一条用日志打印出来如下）。</p>
+<p><img src="http://ovjvgviry.bkt.clouddn.com/17-10-21/17814426.jpg" alt=""></p>
+<p>很长的一条信息，可能你看不懂（其实我也看不懂），没关系，找到对自己有用的信息即可。是不是发现了 <strong>/mnt/sdaq/sdaq1</strong> 这样一条信息，没错，他就是我们需要的 U 盘挂载的路径。我们只需要把 <strong>/proc/mounts</strong> 文件内的带 <strong>vfat</strong> 的最后一行找到，截取其中的 U 盘路径即可。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">searchPath</span><span class="params">()</span> </span>&#123;</div><div class="line">       String filePath = <span class="string">"/proc/mounts"</span>;</div><div class="line">       File file = <span class="keyword">new</span> File(filePath);</div><div class="line">       List&lt;String&gt; lineList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">       InputStream inputStream =<span class="keyword">null</span>;</div><div class="line">       <span class="keyword">try</span> &#123;</div><div class="line">           inputStream = <span class="keyword">new</span> FileInputStream(file);</div><div class="line">           <span class="keyword">if</span> (inputStream != <span class="keyword">null</span>) &#123;</div><div class="line">               InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(inputStream, <span class="string">"GBK"</span>);</div><div class="line">               BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(inputStreamReader);</div><div class="line">               String line = <span class="string">""</span>;</div><div class="line">               <span class="keyword">while</span> ((line = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">                   <span class="keyword">if</span> (line.contains(<span class="string">"vfat"</span>)) &#123;</div><div class="line">                       lineList.add(line);</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125; <span class="keyword">finally</span> &#123;</div><div class="line">           <span class="keyword">if</span> (inputStream != <span class="keyword">null</span>) &#123;</div><div class="line">               <span class="keyword">try</span> &#123;</div><div class="line">                   inputStream.close();</div><div class="line">               &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                   e.printStackTrace();</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       String editPath = lineList.get(lineList.size() - <span class="number">1</span>);</div><div class="line">       <span class="keyword">int</span> start = editPath.indexOf(<span class="string">"/mnt"</span>);</div><div class="line">       <span class="keyword">int</span> end = editPath.indexOf(<span class="string">" vfat"</span>);</div><div class="line">       String path = editPath.substring(start, end);</div><div class="line">       Log.d(<span class="string">"SelectBusLineDialog"</span>, <span class="string">"path: "</span> + path);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>最后，可能有小伙伴会问「既然是定制的 Android 设备，第一次插入的时候不是知道了 U 盘的路径了吗，只要以后写死这个路径不就好了吗」。好吧，其实当时我也是这么想的，但是实际上每次插拔 U 盘，路径是不断变化的，而且仔细看上面那张大图可以发现每条记录的 U 盘挂载路径都是不同的，这也是不能写死路径的原因。（PS：十分感谢同事「开志哥」在项目中给予的帮助）</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> U盘挂载 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[“java.lang.ExceptionInInitializerError 解析”]]></title>
       <url>/2017/09/03/%E2%80%9Cjava-lang-ExceptionInInitializerError%20%E8%A7%A3%E6%9E%90%E2%80%9D/</url>
       <content type="html"><![CDATA[<p>今天在火车站浏览「知识星球」的时候，发现辰星大佬也碰到了 java.lang.ExceptionInInitializerError 这个问题，再次研究一番终于搞懂了这个异常发生的原因（之前项目中也碰到过这个问题，但是没有搞懂原因…菜鸡捂脸）。</p>
