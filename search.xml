@@ -3,6 +3,66 @@
   
     
     <entry>
+      <title><![CDATA[浅谈==和equals的区别]]></title>
+      <url>/2018/01/21/%E6%B5%85%E8%B0%88-%E5%92%8Cequals%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      <content type="html"><![CDATA[<p>在日常编写代码的过程中，== 和 equals() 经常用到。记得我刚开始写代码的时候也是弄不懂两者要在什么情况下使用，这篇文章就总结下二者的区别。</p>
+<a id="more"></a>
+<h3 id=""><a href="#" class="headerlink" title="=="></a>==</h3><p>在 Java 中总共有 8 种基本类型（int，float，byte，double，long，short，char，boolean）。而 == 常用于比较这些基本类型的值是否相等。其实，== 比较的是这些基本类型在栈内存中的地址。</p>
+<h3 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h3><p>equals() 是对象间的比较，它比较的是对象的堆内存地址是否相等。在一些子类中，如 String、Integer 等，该方法将被重写。</p>
+<h3 id="String-中-和equals-的比较"><a href="#String-中-和equals-的比较" class="headerlink" title="String 中 == 和equals() 的比较"></a>String 中 == 和equals() 的比较</h3><p>先看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String str1 = <span class="string">"airxiao"</span>;</div><div class="line">   String str2 = <span class="string">"airxiao"</span>;</div><div class="line">   </div><div class="line">   System.out.println(str1 == str2);</div><div class="line">   System.out.println(str1.equals(str2));</div><div class="line">   </div><div class="line">   String str2 = <span class="keyword">new</span> String(<span class="string">"airxiao"</span>);</div><div class="line">   System.out.println(str1 == str2);</div><div class="line">   System.out.println(str1.equals(str2));</div></pre></td></tr></table></figure>
+<p>其输入的结果如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以上代码输出结果</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">false</span></div><div class="line"><span class="keyword">true</span></div></pre></td></tr></table></figure>
+<p>可能有人对第一个输出的结果为 true 会有点疑惑，这里要先了解下 String  的一些特性。Java 的虚拟机会在内存中单独开辟一块区域用于存储字符串对象，我们称这块区域为字符串缓冲池。我们知道创建一个字符串对象有如下两种方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String a = <span class="string">"airxiao"</span>;  <span class="comment">// 方法1</span></div><div class="line">String a = <span class="keyword">new</span> String(<span class="string">"airxiao"</span>);  <span class="comment">// 方法2</span></div></pre></td></tr></table></figure>
+<p>对于方法 1 来说，它会先去字符创缓冲池中查找是否已经有相同的对象，如果存在的话，那么会直接把这个对象的栈内存地址直接返回给 a。</p>
+<p>对于方法 2 来说，它会直接告诉虚拟机在堆内存中生成一个新的 String 对象。</p>
+<p>现在，也就不难理解第一个输出结果为何为 true 了。由于在创建 str1 的时候已经在字符创缓冲池内存储了 airxiao 对象，因此在创建 str2 的时候由于字符创缓冲池内查找到了 airxiao 对象，就直接把 str1 的栈内存地址给了 str2。因此 str1 和 str2 就拥有了相同的栈内存地址。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实，equals() 是属于 Object 类中的一个方法，在 Objects 类中，equals() 方法的实现是和 == 一样的。而 String 是属于封装类型，它在内部对 equals() 方法进行了重写，equals() 的结果主要取决于重写实现。如果我们自定义了一个对象，若要比较对象是否相同，也需要对 equals() 方法进行重写。</p>
+<p>最后，对于 == 和equals() 的区别，简单概括为 == 比较的是基本类型是否相同，equals() 比较的是对象是否相同。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java 总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[那个立在心里的 Flag 实现啦！]]></title>
+      <url>/2018/01/11/%E9%82%A3%E4%B8%AA%E7%AB%8B%E5%9C%A8%E5%BF%83%E9%87%8C%E7%9A%84-Flag-%E5%AE%9E%E7%8E%B0%E5%95%A6%EF%BC%81/</url>
+      <content type="html"><![CDATA[<p>2018 年 1 月 11 号，这一天对我来说必定是具有里程碑意义的一天，因为我实现了一个埋藏在心里的 Flag。</p>
+<a id="more"></a>
+<p>在<a href="https://www.jianshu.com/p/q81RER" target="_blank" rel="external">《回顾 2017，展望 2018》</a>中，我给自己新的一年立了四个 Flag，但其实我还偷偷立了一个 Flag，那就是<strong>买房</strong>。</p>
+<p>之所以说偷偷立了一个 Flag，是因为在杭州买房实在是太难了，大家都在抢房，全款未必也能买得到，更何况是我这样的刚需呢。因此对于买房我一直抱着试试看的态度，这不是我付出努力就可以完成的。</p>
+<p>毫无疑问我是及其幸运的，不仅找到了支持三成首付的房子，也摇到了号，甚至还是处于杭州的热点板块。现在想起摇号当天 LED 屏上出现自己号码时的情景依然十分激动。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 生活 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[回顾 2017，展望 2018]]></title>
       <url>/2018/01/02/%E5%9B%9E%E9%A1%BE2017%EF%BC%8C%E5%B1%95%E6%9C%9B2018/</url>
       <content type="html"><![CDATA[<p>时间过得好快，一会儿的功夫又是新的一年。</p>
