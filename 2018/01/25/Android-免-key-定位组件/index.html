@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="定位组件," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="「谦虚」「敬畏」「分享」">
-<meta property="og:type" content="website">
-<meta property="og:title" content="其实我们很渺小">
-<meta property="og:url" content="http://yoursite.com/archives/2017/06/index.html">
+<meta name="description" content="之前在项目中遇到了定位需求，便在高德地图定位 SDK 的基础上封装了一层运用在项目中。后来部门提出了组件化的思想，因此又整理完善了，于是便有了这套定位组件。">
+<meta name="keywords" content="定位组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 免 key 定位组件">
+<meta property="og:url" content="http://yoursite.com/2018/01/25/Android-免-key-定位组件/index.html">
 <meta property="og:site_name" content="其实我们很渺小">
-<meta property="og:description" content="「谦虚」「敬畏」「分享」">
+<meta property="og:description" content="之前在项目中遇到了定位需求，便在高德地图定位 SDK 的基础上封装了一层运用在项目中。后来部门提出了组件化的思想，因此又整理完善了，于是便有了这套定位组件。">
+<meta property="og:updated_time" content="2018-01-25T15:28:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="其实我们很渺小">
-<meta name="twitter:description" content="「谦虚」「敬畏」「分享」">
+<meta name="twitter:title" content="Android 免 key 定位组件">
+<meta name="twitter:description" content="之前在项目中遇到了定位需求，便在高德地图定位 SDK 的基础上封装了一层运用在项目中。后来部门提出了组件化的思想，因此又整理完善了，于是便有了这套定位组件。">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/06/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/25/Android-免-key-定位组件/"/>
 
 
 
 
 
-  <title>归档 | 其实我们很渺小</title>
+  <title>Android 免 key 定位组件 | 其实我们很渺小</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -167,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,66 +297,210 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 9 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/Android-免-key-定位组件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="airxiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其实我们很渺小">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android 免 key 定位组件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T22:35:20+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>之前在项目中遇到了定位需求，便在高德地图定位 SDK 的基础上封装了一层运用在项目中。后来部门提出了组件化的思想，因此又整理完善了，于是便有了这套<a href="https://github.com/airxiao/LBS" target="_blank" rel="external">定位组件</a>。</p>
+<a id="more"></a>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>免key使用。无需去官网申请key，直接依赖后即可使用</li>
+<li>支持多种坐标系。只需设置好坐标系，就可以返回该坐标系下对应的经纬度</li>
+<li>使用简便。支持一次性定位，持续定位，无需考虑之间切换逻辑</li>
+<li>定位信息全面，包含了经纬度、街道信息、错误码、以及当前的GPS状态等详细信息</li>
+</ol>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>这套组件是在高德地图基础上进行封装的，其最大的特点就是免申请 key 便可使用。之所以有这样的需求是因为我司的 Android 开发划分为好几个组，每个组支撑不同的行业线，因此组内资源要做到尽可能的共享，提高开发效率。因此，这也是该组件要想达到共享必须做到免 key 申请的原因（github地址：<a href="https://github.com/airxiao/LBS）。" target="_blank" rel="external">https://github.com/airxiao/LBS）。</a></p>
+<p>关于如何破解高德地图定位 SDK 免 key 使用我不再叙述，网上也可以搜到相关资料也有，我也是参考了各路大神的方案才破解成功的，顺便也感谢下各位大神。</p>
+<p><strong>参考资料：</strong></p>
+<blockquote>
+<p><a href="https://juejin.im/entry/5805dc4f570c35006b7af21d" target="_blank" rel="external">Android 破解高德地图 sdk 使用 map 免 key</a></p>
+<p><a href="http://caiyao.name/2016/09/10/%E7%A0%B4%E8%A7%A3%E9%AB%98%E5%BE%B7SDK%E5%AE%9E%E7%8E%B0%E5%85%8Dkey/" target="_blank" rel="external">破解高德SDK实现免key</a></p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><p>使用该组件只需要在应用中依赖 Demo 中的 location_lbs 模块即可 ，之所以说该组件使用简便是因为对于开发者来说，该组件总共只有 7 个接口对外提供。</p>
+<ol>
+<li>定位初始化：app内调用一次即可<br>@param  context<br>@param  coorType要设置坐标系，包括火星坐标系，大地坐标系，百度坐标系（详情见文档）<br>initLocation(Context context, CoorType coorType)</li>
+<li>初始化<br>unInitLocation()</li>
+<li>持续获取位置信息<br>@param scanTime  设置定位间隔时间<br>@param callback  定位信息回调<br>startContinuesLoc(int scanTime, LocationCallBack callBack)</li>
+<li>停止持续获取位置信息<br>@param callback 定位信息回调（与startContinuesLoc中的回调相同实例）<br>stopContinuesLoc(LocationCallBack callBack)</li>
+<li>只获取一次位置信息<br>@param callback定位信息回调<br>startLocationOnce(LocationCallBack callBack)</li>
+<li>设置定位模式<br>@param mode 有省电模式、设备模式、高精度模式可供选择（详情见文档）<br>setLocationMode(LocMode mode)</li>
+<li>判断GPS是否可用<br>isGpsEnabled()</li>
+</ol>
+<p>其中，在 LocationCallBack 的回调接口中不要忘记对错误码进行判断，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> 	<span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">locationResult</span><span class="params">(LocationInfo locationInfo)</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (locationInfo.getErrorCode() == LocationInfo.LOCATION_SUCCESS) &#123;</div><div class="line">          </div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><a href="https://github.com/airxiao/LBS" target="_blank" rel="external">更多使用详情大家可以参考demo 和文档说明，地址：https://github.com/airxiao/LBS</a>。</p>
+<p>如果你认为该组件对你有所帮助的，麻烦您帮忙点个 star，小弟在此谢过了。</p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/定位组件/" rel="tag"># 定位组件</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/25/手机抓包教程/" itemprop="url">
-              
-                <span itemprop="name">手机抓包教程</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/21/浅谈 == 和 equals() 的区别/" rel="prev" title="浅谈 == 和 equals() 的区别">
+                浅谈 == 和 equals() 的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-25T21:37:25+08:00"
-              content="2017-06-25" >
-          06-25
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +508,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -381,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -444,6 +603,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">2.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">3.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -584,11 +759,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   

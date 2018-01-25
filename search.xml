@@ -3,6 +3,55 @@
   
     
     <entry>
+      <title><![CDATA[Android 免 key 定位组件]]></title>
+      <url>/2018/01/25/Android-%E5%85%8D-key-%E5%AE%9A%E4%BD%8D%E7%BB%84%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>之前在项目中遇到了定位需求，便在高德地图定位 SDK 的基础上封装了一层运用在项目中。后来部门提出了组件化的思想，因此又整理完善了，于是便有了这套<a href="https://github.com/airxiao/LBS" target="_blank" rel="external">定位组件</a>。</p>
+<a id="more"></a>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>免key使用。无需去官网申请key，直接依赖后即可使用</li>
+<li>支持多种坐标系。只需设置好坐标系，就可以返回该坐标系下对应的经纬度</li>
+<li>使用简便。支持一次性定位，持续定位，无需考虑之间切换逻辑</li>
+<li>定位信息全面，包含了经纬度、街道信息、错误码、以及当前的GPS状态等详细信息</li>
+</ol>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>这套组件是在高德地图基础上进行封装的，其最大的特点就是免申请 key 便可使用。之所以有这样的需求是因为我司的 Android 开发划分为好几个组，每个组支撑不同的行业线，因此组内资源要做到尽可能的共享，提高开发效率。因此，这也是该组件要想达到共享必须做到免 key 申请的原因（github地址：<a href="https://github.com/airxiao/LBS）。" target="_blank" rel="external">https://github.com/airxiao/LBS）。</a></p>
+<p>关于如何破解高德地图定位 SDK 免 key 使用我不再叙述，网上也可以搜到相关资料也有，我也是参考了各路大神的方案才破解成功的，顺便也感谢下各位大神。</p>
+<p><strong>参考资料：</strong></p>
+<blockquote>
+<p><a href="https://juejin.im/entry/5805dc4f570c35006b7af21d" target="_blank" rel="external">Android 破解高德地图 sdk 使用 map 免 key</a></p>
+<p><a href="http://caiyao.name/2016/09/10/%E7%A0%B4%E8%A7%A3%E9%AB%98%E5%BE%B7SDK%E5%AE%9E%E7%8E%B0%E5%85%8Dkey/" target="_blank" rel="external">破解高德SDK实现免key</a></p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><p>使用该组件只需要在应用中依赖 Demo 中的 location_lbs 模块即可 ，之所以说该组件使用简便是因为对于开发者来说，该组件总共只有 7 个接口对外提供。</p>
+<ol>
+<li>定位初始化：app内调用一次即可<br>@param  context<br>@param  coorType要设置坐标系，包括火星坐标系，大地坐标系，百度坐标系（详情见文档）<br>initLocation(Context context, CoorType coorType)</li>
+<li>初始化<br>unInitLocation()</li>
+<li>持续获取位置信息<br>@param scanTime  设置定位间隔时间<br>@param callback  定位信息回调<br>startContinuesLoc(int scanTime, LocationCallBack callBack)</li>
+<li>停止持续获取位置信息<br>@param callback 定位信息回调（与startContinuesLoc中的回调相同实例）<br>stopContinuesLoc(LocationCallBack callBack)</li>
+<li>只获取一次位置信息<br>@param callback定位信息回调<br>startLocationOnce(LocationCallBack callBack)</li>
+<li>设置定位模式<br>@param mode 有省电模式、设备模式、高精度模式可供选择（详情见文档）<br>setLocationMode(LocMode mode)</li>
+<li>判断GPS是否可用<br>isGpsEnabled()</li>
+</ol>
+<p>其中，在 LocationCallBack 的回调接口中不要忘记对错误码进行判断，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> 	<span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">locationResult</span><span class="params">(LocationInfo locationInfo)</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (locationInfo.getErrorCode() == LocationInfo.LOCATION_SUCCESS) &#123;</div><div class="line">          </div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><a href="https://github.com/airxiao/LBS" target="_blank" rel="external">更多使用详情大家可以参考demo 和文档说明，地址：https://github.com/airxiao/LBS</a>。</p>
+<p>如果你认为该组件对你有所帮助的，麻烦您帮忙点个 star，小弟在此谢过了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 定位组件 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[浅谈 == 和 equals() 的区别]]></title>
       <url>/2018/01/21/%E6%B5%85%E8%B0%88%20==%20%E5%92%8C%20equals()%20%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       <content type="html"><![CDATA[<p>在日常编写代码的过程中，== 和 equals() 经常用到。记得我刚开始写代码的时候也是弄不懂两者要在什么情况下使用，这篇文章就总结下二者的区别。</p>
