@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/21/浅谈 == 和 equals() 的区别/index.html">
 <meta property="og:site_name" content="其实我们很渺小">
 <meta property="og:description" content="在日常编写代码的过程中，== 和 equals() 经常用到。记得我刚开始写代码的时候也是弄不懂两者要在什么情况下使用，这篇文章就总结下二者的区别。">
-<meta property="og:updated_time" content="2018-01-21T10:53:55.000Z">
+<meta property="og:updated_time" content="2018-02-27T14:14:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈 == 和 equals() 的区别">
 <meta name="twitter:description" content="在日常编写代码的过程中，== 和 equals() 经常用到。记得我刚开始写代码的时候也是弄不懂两者要在什么情况下使用，这篇文章就总结下二者的区别。">
@@ -415,8 +415,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以上代码输出结果</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">false</span></div><div class="line"><span class="keyword">true</span></div></pre></td></tr></table></figure>
 <p>可能有人对第一个输出的结果为 true 会有点疑惑，这里要先了解下 String  的一些特性。Java 的虚拟机会在内存中单独开辟一块区域用于存储字符串对象，我们称这块区域为字符串缓冲池。我们知道创建一个字符串对象有如下两种方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String a = <span class="string">"airxiao"</span>;  <span class="comment">// 方法1</span></div><div class="line">String a = <span class="keyword">new</span> String(<span class="string">"airxiao"</span>);  <span class="comment">// 方法2</span></div></pre></td></tr></table></figure>
-<p>对于方法 1 来说，它会先去字符创缓冲池中查找是否已经有相同的对象，如果存在的话，那么会直接把这个对象的栈内存地址直接返回给 a。</p>
-<p>对于方法 2 来说，它会直接告诉虚拟机在堆内存中生成一个新的 String 对象。</p>
+<p>对于方法 1 来说，它会先去字符串缓冲池中查找是否已经有相同的对象，如果存在的话，那么会直接把这个对象的栈内存地址直接返回给 a，如果不存在的话就会在字符串缓冲池中生成一个对象再把这个对象的栈内存地址赋予给 a。</p>
+<p>对于方法 2 来说，它会直接告诉虚拟机在堆内存中生成一个新的 String 对象，但是并不会入字符串缓冲池。</p>
 <p>现在，也就不难理解第一个输出结果为何为 true 了。由于在创建 str1 的时候已经在字符创缓冲池内存储了 airxiao 对象，因此在创建 str2 的时候由于字符创缓冲池内查找到了 airxiao 对象，就直接把 str1 的栈内存地址给了 str2。因此 str1 和 str2 就拥有了相同的栈内存地址。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实，equals() 是属于 Object 类中的一个方法，在 Objects 类中，equals() 方法的实现是和 == 一样的。而 String 是属于封装类型，它在内部对 equals() 方法进行了重写，equals() 的结果主要取决于重写实现。如果我们自定义了一个对象，若要比较对象是否相同，也需要对 equals() 方法进行重写。</p>
 <p>最后，对于 == 和equals() 的区别，简单概括为 == 比较的是基本类型的引用是否指向堆内存的同一块地址，equals() 比较的是堆内存中的内容是否相同。</p>
@@ -546,7 +546,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
