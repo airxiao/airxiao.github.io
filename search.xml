@@ -3,6 +3,129 @@
   
     
     <entry>
+      <title><![CDATA[Android 屏幕适配小总结]]></title>
+      <url>/2018/02/28/Android-%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>Android 的碎片化越来越严重，因此屏幕适配十分重要但又比较繁琐，现对 Android 的屏幕适配做下总结。</p>
+<a id="more"></a>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Android 屏幕适配必须了解的几个概念：</p>
+<ul>
+<li><p>px</p>
+<p>意为像素，是用来计算数码影像的最小单位。</p>
+</li>
+<li><p>in</p>
+<p>表示英寸，指的是手机屏幕对角线长度（我们平时说手机 xx 寸就是指英寸）。</p>
+</li>
+<li><p>dpi</p>
+<p>表示每英寸点数，即每英寸包含像素个数。比如320X480分辨率的手机，宽2英寸，高3英寸, 每英寸包含的像素点的数量为320/2=160dpi（横向）或480/3=160dpi（纵向），160就是这部手机的dpi，横向和纵向的这个值都是相同的。</p>
+</li>
+<li><p>density</p>
+<p>屏幕密度，density和dpi的关系为 density = dpi/160</p>
+</li>
+<li><p>dp</p>
+<p>也即dip，设备独立像素，device independent pixels的缩写，Android特有的单位。在屏幕密度dpi = 160屏幕上，1dp = 1px。</p>
+</li>
+</ul>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>各类型设备屏幕对应的 dpi 等级、屏幕像素密度、屏幕密度如下表。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设备 dpi 等级</th>
+<th style="text-align:center">屏幕像素密度（dpi）</th>
+<th style="text-align:center">屏幕密度（density）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ldpi</td>
+<td style="text-align:center">120</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">mdpi</td>
+<td style="text-align:center">160</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">dpi</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">1.5</td>
+</tr>
+<tr>
+<td style="text-align:center">xhdpi</td>
+<td style="text-align:center">320</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">xxhdpi</td>
+<td style="text-align:center">480</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p>我们知道一个 Android 项目的资源文件下有很多类型的 drawable 文件夹，分别对应不同的 dpi。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">drawable 文件等级</th>
+<th style="text-align:center">dpi（drawable）</th>
+<th style="text-align:center">density（drawable）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">drawable-ldpi</td>
+<td style="text-align:center">120</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-mdpi</td>
+<td style="text-align:center">160</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-hdpi</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">1.5</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-xhdpi</td>
+<td style="text-align:center">320</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-xxhdpi</td>
+<td style="text-align:center">480</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>当我们在宽高都设置为 wrap_content 的 ImageView 控件中插入一张图片，那么这张图片的尺寸换算成 dp 该如何计算呢？显示在设备上又应该是多少像素呢？</strong></p>
+<ol>
+<li>dp = 图片尺寸像素 / 图片所在drawable 文件等级的 density</li>
+<li>设备上显示的像素 = dp * 设备屏幕密度（density）</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>在宽高都设置为 wrap_content 的 ImageView 控件中插入一张图片，如果图片依次放在 drawable 文件 dpi 越大的文件中，控件的 dp 就越小，ImageView 在设备上显示的尺寸也越小，图片在 ImageView 展示就会被压缩。</li>
+<li>在宽高都设置为 wrap_content 的 ImageView 控件中插入一张来自 drawable-mdpi 文件等级的 120 * 120 图片，其宽高的 dp = 120 / 1 = 120，其展示效果和把图片放入一个宽高都设置为 120dp 的控件中的展示效果一样。但是如果把图片放到大于宽高都设置为 120dp 的控件中，那么图片就会被拉伸显得模糊；反之则会被压缩。</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 适配 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[从源码角度分析 Handler、Looper、Message、MessageQuene]]></title>
       <url>/2018/02/26/%E4%BB%8E%E6%BA%90%E7%A0%81%E8%A7%92%E5%BA%A6%E5%88%86%E6%9E%90-Handler%E3%80%81Looper%E3%80%81Message%E3%80%81MessageQuene/</url>
       <content type="html"><![CDATA[<p>Android 的线程间通信主要是通过 Handler 来实现，那么具体是怎么实现运转的呢？下面就从源码的角度进行分析。</p>
@@ -43,7 +166,7 @@
         
         <tags>
             
-            <tag> 源码 </tag>
+            <tag> 源码分析 </tag>
             
         </tags>
         
