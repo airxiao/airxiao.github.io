@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="适配," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="「谦虚」「敬畏」「分享」">
-<meta property="og:type" content="website">
-<meta property="og:title" content="其实我们很渺小">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="Android 的碎片化越来越严重，因此屏幕适配十分重要但又比较繁琐，现对 Android 的屏幕适配做下总结。">
+<meta name="keywords" content="适配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 屏幕适配总结">
+<meta property="og:url" content="http://yoursite.com/2018/02/28/Android-屏幕适配总结/index.html">
 <meta property="og:site_name" content="其实我们很渺小">
-<meta property="og:description" content="「谦虚」「敬畏」「分享」">
+<meta property="og:description" content="Android 的碎片化越来越严重，因此屏幕适配十分重要但又比较繁琐，现对 Android 的屏幕适配做下总结。">
+<meta property="og:updated_time" content="2018-02-28T15:21:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="其实我们很渺小">
-<meta name="twitter:description" content="「谦虚」「敬畏」「分享」">
+<meta name="twitter:title" content="Android 屏幕适配总结">
+<meta name="twitter:description" content="Android 的碎片化越来越严重，因此屏幕适配十分重要但又比较繁琐，现对 Android 的屏幕适配做下总结。">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/28/Android-屏幕适配总结/"/>
 
 
 
 
 
-  <title>归档 | 其实我们很渺小</title>
+  <title>Android 屏幕适配总结 | 其实我们很渺小</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -167,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,408 +297,284 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 11 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/Android-屏幕适配总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="airxiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其实我们很渺小">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android 屏幕适配总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T21:20:58+08:00">
+                2018-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>Android 的碎片化越来越严重，因此屏幕适配十分重要但又比较繁琐，现对 Android 的屏幕适配做下总结。</p>
+<a id="more"></a>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Android 屏幕适配必须了解的几个概念：</p>
+<ul>
+<li><p>px</p>
+<p>意为像素，是用来计算数码影像的最小单位。</p>
+</li>
+<li><p>in</p>
+<p>表示英寸，指的是手机屏幕对角线长度（我们平时说手机 xx 寸就是指英寸）。</p>
+</li>
+<li><p>dpi</p>
+<p>表示每英寸点数，即每英寸包含像素个数。比如320X480分辨率的手机，宽2英寸，高3英寸, 每英寸包含的像素点的数量为320/2=160dpi（横向）或480/3=160dpi（纵向），160就是这部手机的dpi，横向和纵向的这个值都是相同的。</p>
+</li>
+<li><p>density</p>
+<p>屏幕密度，density和dpi的关系为 density = dpi/160</p>
+</li>
+<li><p>dp</p>
+<p>也即dip，设备独立像素，device independent pixels的缩写，Android特有的单位。在屏幕密度dpi = 160屏幕上，1dp = 1px。</p>
+</li>
+</ul>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>各类型设备屏幕对应的 dpi 等级、屏幕像素密度、屏幕密度如下表。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设备 dpi 等级</th>
+<th style="text-align:center">屏幕像素密度（dpi）</th>
+<th style="text-align:center">屏幕密度（density）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ldpi</td>
+<td style="text-align:center">120</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">mdpi</td>
+<td style="text-align:center">160</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">dpi</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">1.5</td>
+</tr>
+<tr>
+<td style="text-align:center">xhdpi</td>
+<td style="text-align:center">320</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">xxhdpi</td>
+<td style="text-align:center">480</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p>我们知道一个 Android 项目的资源文件下有很多类型的 drawable 文件夹，分别对应不同的 dpi。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">drawable 文件等级</th>
+<th style="text-align:center">dpi（drawable）</th>
+<th style="text-align:center">density（drawable）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">drawable-ldpi</td>
+<td style="text-align:center">120</td>
+<td style="text-align:center">0.75</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-mdpi</td>
+<td style="text-align:center">160</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-hdpi</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">1.5</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-xhdpi</td>
+<td style="text-align:center">320</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">drawable-xxhdpi</td>
+<td style="text-align:center">480</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>当我们在宽高都设置为 wrap_content 的 ImageView 控件中插入一张图片，那么这张图片的尺寸换算成 dp 该如何计算呢？显示在设备上又应该是多少像素呢？</strong></p>
+<ol>
+<li>dp = 图片尺寸像素 / 图片所在drawable 文件等级的 density</li>
+<li>设备上显示的像素 = dp * 设备屏幕密度（density）</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>在宽高都设置为 wrap_content 的 ImageView 控件中插入一张图片，如果图片依次放在 drawable 文件 dpi 越大的文件中，控件的 dp 就越小，ImageView 在设备上显示的尺寸也越小，图片在 ImageView 展示就会被压缩。</li>
+<li>在宽高都设置为 wrap_content 的 ImageView 控件中插入一张来自 drawable-mdpi 文件等级的 120 * 120 图片，其宽高的 dp = 120 / 1 = 120，其展示效果和把图片放入一个宽高都设置为 120dp 的控件中的展示效果一样。但是如果把图片放到大于宽高都设置为 120dp 的控件中，那么图片就会被拉伸显得模糊；反之则会被压缩。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/适配/" rel="tag"># 适配</a>
+          
         </div>
       
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/28/Android-屏幕适配总结/" itemprop="url">
-              
-                <span itemprop="name">Android 屏幕适配总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T21:20:58+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/26/从源码角度分析-Handler、Looper、Message、MessageQuene/" itemprop="url">
-              
-                <span itemprop="name">从源码角度分析 Handler、Looper、Message、MessageQuene</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-26T22:18:00+08:00"
-              content="2018-02-26" >
-          02-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/31/Android-中常见的内存泄漏总结/" itemprop="url">
-              
-                <span itemprop="name">Android 中常见的内存泄漏总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-31T22:40:32+08:00"
-              content="2018-01-31" >
-          01-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/25/Android-免-key-定位组件/" itemprop="url">
-              
-                <span itemprop="name">Android 免 key 定位组件</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-25T22:35:20+08:00"
-              content="2018-01-25" >
-          01-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/21/浅谈 == 和 equals() 的区别/" itemprop="url">
-              
-                <span itemprop="name">浅谈 == 和 equals() 的区别</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-21T16:50:39+08:00"
-              content="2018-01-21" >
-          01-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/02/回顾2017，展望2018/" itemprop="url">
-              
-                <span itemprop="name">回顾 2017，展望 2018</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-02T17:17:28+08:00"
-              content="2018-01-02" >
-          01-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
 
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/26/从源码角度分析-Handler、Looper、Message、MessageQuene/" rel="prev" title="从源码角度分析 Handler、Looper、Message、MessageQuene">
+                从源码角度分析 Handler、Looper、Message、MessageQuene <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/21/如何获取Android系统挂载U盘的路径/" itemprop="url">
-              
-                <span itemprop="name">如何获取Android系统挂载U盘的路径</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-21T15:37:04+08:00"
-              content="2017-10-21" >
-          10-21
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/31/Android-手机存储那些事儿/" itemprop="url">
-              
-                <span itemprop="name">Android 手机存储那些事儿</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-31T19:22:44+08:00"
-              content="2017-08-31" >
-          08-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/08/致不安的自己/" itemprop="url">
-              
-                <span itemprop="name">致不安的自己</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-08T11:38:19+08:00"
-              content="2017-07-08" >
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/25/手机抓包教程/" itemprop="url">
-              
-                <span itemprop="name">手机抓包教程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-25T21:37:25+08:00"
-              content="2017-06-25" >
-          06-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -704,6 +582,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -723,8 +605,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -786,6 +677,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公式"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -926,11 +833,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   

@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title><![CDATA[Android 屏幕适配小总结]]></title>
-      <url>/2018/02/28/Android-%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
+      <title><![CDATA[Android 屏幕适配总结]]></title>
+      <url>/2018/02/28/Android-%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>Android 的碎片化越来越严重，因此屏幕适配十分重要但又比较繁琐，现对 Android 的屏幕适配做下总结。</p>
 <a id="more"></a>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Android 屏幕适配必须了解的几个概念：</p>
