@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/26/从源码角度分析-Handler、Looper、Message、MessageQuene/index.html">
 <meta property="og:site_name" content="其实我们很渺小">
 <meta property="og:description" content="Android 的线程间通信主要是通过 Handler 来实现，那么具体是怎么实现运转的呢？下面就从源码的角度进行分析。">
-<meta property="og:updated_time" content="2018-02-27T15:10:35.000Z">
+<meta property="og:updated_time" content="2018-02-28T12:56:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从源码角度分析 Handler、Looper、Message、MessageQuene">
 <meta name="twitter:description" content="Android 的线程间通信主要是通过 Handler 来实现，那么具体是怎么实现运转的呢？下面就从源码的角度进行分析。">
@@ -426,8 +426,12 @@
 <p>发现了我们熟悉的 handleMessage(msg) 方法，原来回调都是在这里。</p>
 <p>至此，整个流程大致如下：</p>
 <p><strong>Handler 执行发送消息的相关方法后，Message 被装进 MessageQuene 中。线程中的 Looper 则是在 loop() 方法内不断尝试从 MessageQuene 内取出 Message，然后调用与该 Message 绑定的 Handler（msg.target）对象的 dispatchMessage() 方法。最后可以看到处理消息的 handleMessage() 方法就是在 dispatchMessage() 方法内被调用的。</strong></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在线程间通信中，子线程通过调用主线程的 Handler 的发送消息函数把子线程的 Message 发送到 MessageQuene 中。由于主线程默认调用了 Looper.loop() 方法，他会不断地去查询主线程的 MessageQuene 中是否有 Message 对象，如果有的话就把对象取出给主线程的 Handler 进行处理，从而达到了线程间通信。</p>
-<p>一个线程可以有多个 Handler，但是一个线程只能对应一个 Looper 和一个 MessageQuene。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>在线程间通信中，子线程通过调用主线程的 Handler 的发送消息函数把子线程的 Message 发送到 MessageQuene 中。由于主线程默认调用了 Looper.loop() 方法，他会不断地去查询主线程的 MessageQuene 中是否有 Message 对象，如果有的话就把对象取出给主线程的 Handler 进行处理，从而达到了线程间通信。</li>
+</ol>
+<ol>
+<li>一个线程可以有多个 Handler，但是一个线程只能对应一个 Looper 和一个 MessageQuene。</li>
+</ol>
 
       
     </div>
