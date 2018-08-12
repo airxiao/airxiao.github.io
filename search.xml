@@ -6,6 +6,7 @@
       <title><![CDATA[视频硬解码]]></title>
       <url>/2018/08/12/%E8%A7%86%E9%A2%91%E7%A1%AC%E8%A7%A3%E7%A0%81/</url>
       <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>实时视频在播放的时候出现卡顿和延迟现象，经分析是因为视频在 C 层采用的是软解码的方式进行播放，因此决定在 Java 层改用硬解码方式。</p>
+<a id="more"></a>
 <h3 id="软解码和硬解码区别"><a href="#软解码和硬解码区别" class="headerlink" title="软解码和硬解码区别"></a>软解码和硬解码区别</h3><ul>
 <li>软解码：使用 CPU 进行编码，实现直接、简单，参数调整方便，升级易，但 CPU 负载重，性能较硬编码低。</li>
 <li>硬解码：使用显卡 GPU、专用的 DSP、FPGA、ASIC 芯片等方式进行编码，性能高。</li>
