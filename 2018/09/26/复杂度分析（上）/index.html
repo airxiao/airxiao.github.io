@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据结构和算法," />
 
 
 
@@ -90,15 +90,22 @@
 
 
 
-<meta name="description" content="「谦虚」「敬畏」「分享」">
-<meta property="og:type" content="website">
-<meta property="og:title" content="其实我们很渺小">
-<meta property="og:url" content="http://yoursite.com/categories/生活/index.html">
+<meta name="description" content="复杂度分析是整个算法学习的精髓，只要掌握了它，数据结构和算法的内容基本上就掌握了一半。">
+<meta name="keywords" content="数据结构和算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复杂度分析（上）">
+<meta property="og:url" content="http://yoursite.com/2018/09/26/复杂度分析（上）/index.html">
 <meta property="og:site_name" content="其实我们很渺小">
-<meta property="og:description" content="「谦虚」「敬畏」「分享」">
+<meta property="og:description" content="复杂度分析是整个算法学习的精髓，只要掌握了它，数据结构和算法的内容基本上就掌握了一半。">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/22/ef/22900968aa2b190072c985a08b0e92ef.png">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/37/0a/3723793cc5c810e9d5b06bc95325bf0a.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/9b/9a/9b1c88264e7a1a20b5954be9bc4bec9a.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/49/04/497a3f120b7debee07dc0d03984faf04.jpg">
+<meta property="og:updated_time" content="2018-09-26T15:30:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="其实我们很渺小">
-<meta name="twitter:description" content="「谦虚」「敬畏」「分享」">
+<meta name="twitter:title" content="复杂度分析（上）">
+<meta name="twitter:description" content="复杂度分析是整个算法学习的精髓，只要掌握了它，数据结构和算法的内容基本上就掌握了一半。">
+<meta name="twitter:image" content="https://static001.geekbang.org/resource/image/22/ef/22900968aa2b190072c985a08b0e92ef.png">
 
 
 
@@ -126,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/生活/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/26/复杂度分析（上）/"/>
 
 
 
 
 
-  <title>分类: 生活 | 其实我们很渺小</title>
+  <title>复杂度分析（上） | 其实我们很渺小</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -167,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,47 +302,219 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        生活
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/08/致不安的自己/" itemprop="url">
-              
-                <span itemprop="name">致不安的自己</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-08T11:38:19+08:00"
-              content="2017-07-08" >
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/26/复杂度分析（上）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="airxiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其实我们很渺小">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                复杂度分析（上）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T21:46:53+08:00">
+                2018-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构和算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构和算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>复杂度分析是整个算法学习的精髓，只要掌握了它，数据结构和算法的内容基本上就掌握了一半。</p>
+<a id="more"></a>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度的全称是渐进时间复杂度，表示算法的执行时间与数据规模之间的增长关系。</p>
+<h5 id="大-O-复杂度表示法"><a href="#大-O-复杂度表示法" class="headerlink" title="大 O 复杂度表示法"></a>大 O 复杂度表示法</h5><p><img src="https://static001.geekbang.org/resource/image/22/ef/22900968aa2b190072c985a08b0e92ef.png" alt="大 O 复杂度表示法"></p>
+<p>其中，T(n)表示代码执行的时间；n 表示数据规模的大小；f(n) 表示每行代码执行的次数总和。因为这是一个公式，所以用 f(n) 来表示。公式中的 O，表示代码的执行时间 T(n) 与 f(n) 表达式成正比。</p>
+<p>大 O 时间复杂度实际上并不具体表示代码真正的执行时间，而是表示代码执行时间随数据规模增长的变化趋势，所以，也叫作渐进时间复杂度，简称时间复杂度。</p>
+<p>当 n 很大时，公式中的低阶、常量、系数三部分并不左右增长趋势，所以都可以忽略。我们只需要记录一个最大量级就可以了。也就是说：总的时间复杂度就等于量级最大的那段代码的时间复杂度。</p>
+<h5 id="几种常见时间复杂度实例分析"><a href="#几种常见时间复杂度实例分析" class="headerlink" title="几种常见时间复杂度实例分析"></a>几种常见时间复杂度实例分析</h5><p><img src="https://static001.geekbang.org/resource/image/37/0a/3723793cc5c810e9d5b06bc95325bf0a.jpg" alt="几种常见时间复杂度实例分析"></p>
+<p>图中的复杂度量级，可以分为多项式量级和非多项式量级。其中，非多项式量级只有两个：O(2n) 和 O(n!)。</p>
+<p>当数据规模 n 越来越大时，非多项式量级算法的执行时间会急剧增加，求解问题的执行时间会无限增长。所以，非多项式时间复杂度的算法其实是非常低效的算法。而几种常见的多项式时间复杂度如下：</p>
+<ol>
+<li><p>O(1)</p>
+<p>O(1) 只是常量级时间复杂度的一种表示方法，并不是指只执行了一行代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">int</span> i = <span class="number">8</span>;</div><div class="line"><span class="number">2</span> <span class="keyword">int</span> j = <span class="number">6</span>;</div><div class="line"><span class="number">3</span> <span class="keyword">int</span> sum = i + j;</div></pre></td></tr></table></figure>
+<p>一般情况下，只要算法中不存在循环语句、递归语句，即使有成千上万行的代码，其时间复杂度也是Ο(1)。</p>
+</li>
+</ol>
+<ol>
+<li><p>O(logn)、O(nlogn)</p>
+<p>对数阶时间复杂度非常常见，同时也是最难分析的一种时间复杂度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> i=<span class="number">1</span>;</div><div class="line"><span class="number">2</span> <span class="keyword">while</span> (i &lt;= n)  &#123;</div><div class="line"><span class="number">3</span>   i = i * <span class="number">2</span>;</div><div class="line"><span class="number">4</span> &#125;</div></pre></td></tr></table></figure>
+<p>从代码中可以看出，变量 i 的值从 1 开始取，每循环一次就乘以 2。当大于 n 时，循环结束。如果把它一个一个列出来，就应该是这个样子的：</p>
+<p><img src="https://static001.geekbang.org/resource/image/9b/9a/9b1c88264e7a1a20b5954be9bc4bec9a.jpg" alt=""></p>
+<p>所以，我们只要知道 x 值是多少，就知道这行代码执行的次数了。x=log2n，所以，这段代码的时间复杂度就是 O(log2n)。</p>
+<p>在采用大 O 标记复杂度的时候，可以忽略系数，即 O(Cf(n)) = O(f(n))。因此，在对数阶时间复杂度的表示方法里，我们忽略对数的“底”，统一表示为 O(logn)。</p>
+</li>
+<li><p>O(m+n)、O(m*n)</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> sum_1 = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (; i &lt; m; ++i) &#123;</div><div class="line">    sum_1 = sum_1 + i;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">int</span> sum_2 = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> j = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (; j &lt; n; ++j) &#123;</div><div class="line">    sum_2 = sum_2 + j;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> sum_1 + sum_2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从代码中可以看出，m 和 n 是表示两个数据规模。我们无法事先评估 m 和 n 谁的量级大，所以我们在表示复杂度的时候，就不能简单地利用加法法则，省略掉其中一个。所以，上面代码的时间复杂度就是 O(m+n)。</p>
+</li>
+</ol>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>空间复杂度全称就是渐进空间复杂度，表示算法的存储空间与数据规模之间的增长关系。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line"><span class="number">2</span>  <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"><span class="number">3</span>  <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line"><span class="number">4</span>  <span class="keyword">for</span> (i; i &lt;n; ++i) &#123;</div><div class="line"><span class="number">5</span>    a[i] = i * i;</div><div class="line"><span class="number">6</span>  &#125;</div><div class="line"></div><div class="line"><span class="number">7</span>  <span class="keyword">for</span> (i = n-<span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</div><div class="line"><span class="number">8</span>    print out a[i]</div><div class="line"><span class="number">9</span>  &#125;</div><div class="line"><span class="number">10</span>&#125;</div></pre></td></tr></table></figure>
+<p>可以看到，第 2 行代码中，我们申请了一个空间存储变量 i，但是它是常量阶的，跟数据规模 n 没有关系，所以我们可以忽略。第 3 行申请了一个大小为 n 的 int 类型数组，除此之外，剩下的代码都没有占用更多的空间，所以整段代码的空间复杂度就是 O(n)。</p>
+<p>我们常见的空间复杂度就是 O(1)、O(n)、O(n2 )，像 O(logn)、O(nlogn) 这样的对数阶复杂度平时都用不到。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>复杂度也叫渐进复杂度，包括时间复杂度和空间复杂度，用来分析算法执行效率与数据规模之间的增长关系，可以粗略地表示，越高阶复杂度的算法，执行效率越低。</p>
+<p><img src="https://static001.geekbang.org/resource/image/49/04/497a3f120b7debee07dc0d03984faf04.jpg" alt=""></p>
+<p>常见的复杂度并不多，从低阶到高阶有：O(1)、O(logn)、O(n)、O(nlogn)、O(n2 )。对于绝大多数数据结构和算法来说，其复杂度无外乎这几个。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构和算法/" rel="tag"># 数据结构和算法</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/12/视频硬解码/" rel="prev" title="视频硬解码">
+                视频硬解码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -343,6 +522,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -362,8 +545,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -425,6 +617,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#大-O-复杂度表示法"><span class="nav-number">1.0.1.</span> <span class="nav-text">大 O 复杂度表示法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#几种常见时间复杂度实例分析"><span class="nav-number">1.0.2.</span> <span class="nav-text">几种常见时间复杂度实例分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -565,6 +773,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
