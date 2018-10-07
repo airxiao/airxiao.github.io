@@ -3,6 +3,70 @@
   
     
     <entry>
+      <title><![CDATA[数组]]></title>
+      <url>/2018/10/06/%E6%95%B0%E7%BB%84/</url>
+      <content type="html"><![CDATA[<p>在每一种编程语言中，基本都有数组这种数据类型，它不仅仅是一种数据类型，还是一种最基础的数据结构。</p>
+<a id="more"></a>
+<p><strong>数组是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据</strong>。</p>
+<p>数组的定义涉及到了几个关键词，分别是<strong>线性表</strong>、<strong>连续的内存空间和相同类型的数据</strong>。</p>
+<h5 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h5><p>线性表就是数据排成像一条线一样的结构，每个线性表上的数据最多只有前和后两个方向。其实除了数组，链表、队列、栈等也是线性表结构。</p>
+<p><img src="https://static001.geekbang.org/resource/image/b6/77/b6b71ec46935130dff5c4b62cf273477.jpg" alt=""></p>
+<p>与它相对立的概念是非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表中，数据之间并不是简单的前后关系。</p>
+<p><img src="https://static001.geekbang.org/resource/image/6e/69/6ebf42641b5f98f912d36f6bf86f6569.jpg" alt=""></p>
+<h5 id="连续的内存空间和相同类型的数据"><a href="#连续的内存空间和相同类型的数据" class="headerlink" title="连续的内存空间和相同类型的数据"></a>连续的内存空间和相同类型的数据</h5><p>正是因为这两个限制，它才有了一个堪称“杀手锏”的特性：“随机访问”。但也让数组的很多操作变得非常低效，比如要想在数组中删除、插入一个数据，为了保证连续性，就需要做大量的数据搬移工作。</p>
+<h3 id="如何实现随机访问？"><a href="#如何实现随机访问？" class="headerlink" title="如何实现随机访问？"></a>如何实现随机访问？</h3><p><img src="https://static001.geekbang.org/resource/image/98/c4/98df8e702b14096e7ee4a5141260cdc4.jpg" alt=""></p>
+<p>上图是一个长度为 10 的 int 类型的数组。计算机给数组 a[10]，分配了一块连续内存空间 1000～1039，其中，内存块的首地址为 base_address = 1000。</p>
+<p>计算机会给每个内存单元分配一个地址，计算机通过地址来访问内存中的数据。当计算机需要随机访问数组中的某个元素时，它会首先通过下面的寻址公式，计算出该元素存储的内存地址：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a[i]_address = base_address + i * data_type_size</div></pre></td></tr></table></figure>
+<p>其中 data_type_size 表示数组中每个元素的大小。我们举的这个例子里，数组中存储的是 int 类型数据，所以 data_type_size 就为 4 个字节。</p>
+<h3 id="低效的“插入”和“删除”"><a href="#低效的“插入”和“删除”" class="headerlink" title="低效的“插入”和“删除”"></a>低效的“插入”和“删除”</h3><p>数组为了保持内存数据的连续性，会导致插入、删除这两个操作比较。</p>
+<h5 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h5><p>假设数组的长度为 n，现在，如果我们需要将一个数据插入到数组中的第 k 个位置。为了把第 k 个位置腾出来，给新来的数据，我们需要将第 k～n 这部分的元素都顺序地往后挪一位。</p>
+<p>如果在数组的末尾插入元素，那就不需要移动数据了，这时的时间复杂度为 O(1)。但如果在数组的开头插入元素，那所有的数据都需要依次往后移动一位，所以最坏时间复杂度是 O(n)。因为我们在每个位置插入元素的概率是一样的，所以平均情况时间复杂度为 (1+2+…n)/n=O(n)。</p>
+<p>如果一组数组中存储的数据并没有任何规律，数组只是被当作一个存储数据的集合。在这种情况下，如果要将某个数组插入到第 k 个位置，为了避免大规模的数据搬移，我们还有一个简单的办法就是，直接将第 k 位的数据搬移到数组元素的最后，把新的元素直接放入第 k 个位置。</p>
+<p>举一个例子。假设数组 a[10] 中存储了如下 5 个元素：a，b，c，d，e。</p>
+<p>我们现在需要将元素 x 插入到第 3 个位置。我们只需要将 c 放入到 a[5]，将 a[2] 赋值为 x 即可。最后，数组中的元素如下： a，b，x，d，e，c。</p>
+<p><img src="https://static001.geekbang.org/resource/image/3f/dc/3f70b4ad9069ec568a2caaddc231b7dc.jpg" alt=""></p>
+<p>利用这种处理技巧，在特定场景下，在第 k 个位置插入一个元素的时间复杂度就会降为 O(1)。</p>
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p>跟插入数据类似，如果我们要删除第 k 个位置的数据，为了内存的连续性，也需要搬移数据，不然中间就会出现空洞，内存就不连续了。</p>
+<p>和插入类似，如果删除数组末尾的数据，则最好情况时间复杂度为 O(1)；如果删除开头的数据，则最坏情况时间复杂度为 O(n)；平均情况时间复杂度也为 O(n)。</p>
+<p>实际上，在某些特殊场景下，我们并不一定非得追求数组中数据的连续性。如果我们将多次删除操作集中在一起执行，将会提高删除的效率。</p>
+<p>我们继续来看例子。数组 a[10] 中存储了 8 个元素：a，b，c，d，e，f，g，h。现在，我们要依次删除 a，b，c 三个元素。</p>
+<p><img src="https://static001.geekbang.org/resource/image/b6/e5/b69b8c5dbf6248649ddab7d3e7cfd7e5.jpg" alt=""></p>
+<p>为了避免 d，e，f，g，h 这几个数据会被搬移三次，我们可以先记录下已经删除的数据。每次的删除操作并不是真正地搬移数据，只是记录数据已经被删除。当数组没有更多空间存储数据时，我们再触发执行一次真正的删除操作，这样就大大减少了删除操作导致的数据搬移（<strong>JVM 标记清除垃圾回收算法的核心思想</strong>）。</p>
+<h3 id="容器能否完全替代数组？"><a href="#容器能否完全替代数组？" class="headerlink" title="容器能否完全替代数组？"></a>容器能否完全替代数组？</h3><p>针对数组类型，很多语言都提供了容器类，比如 Java 中的 ArrayList、C++ STL 中的 vector。</p>
+<p>以 Java 为例，我们几乎天天在用 ArrayList，它的底层实现就是靠数组的。那它与数组相比，到底有哪些优势呢？</p>
+<p>ArrayList 最大的优势就是可以将很多数组操作的细节封装起来。比如前面提到的数组插入、删除数据时需要搬移其他数据等，如果要把某个数据插入到超过数组大小的位置时，我们就需要重新分配一块更大的空间，将原来的数据复制过去，然后然后再将新的数据插入。另外，它还有一个优势，就是支持动态扩容，每次存储空间不够的时候，它都会将空间自动扩容为 1.5 倍。不过，因为扩容操作涉及内存申请和数据搬移，是比较耗时的。所以，如果事先能确定需要存储的数据大小，最好在创建 ArrayList 的时候事先指定数据大小。</p>
+<h5 id="容器和数组使用场景总结"><a href="#容器和数组使用场景总结" class="headerlink" title="容器和数组使用场景总结"></a>容器和数组使用场景总结</h5><ol>
+<li>Java ArrayList 无法存储基本类型，比如 int、long，需要封装为 Integer、Long 类，而 Autoboxing、Unboxing 则有一定的性能消耗，所以如果特别关注性能，或者希望使用基本类型，就可以选用数组。</li>
+<li>如果数据大小事先已知，并且对数据的操作非常简单，用不到 ArrayList 提供的大部分方法，也可以直接使用数组。</li>
+<li>当要表示多维数组时，用数组往往会更加直观。比如 Object []<strong>[]</strong>array；而用容器的话则需要这样定义：ArrayList&lt;<strong>ArrayList</strong>&gt; array。</li>
+</ol>
+<p>总结一下，对于业务开发，直接使用容器就足够了。但如果是做一些非常底层的开发，比如开发网络框架，性能的优化需要做到极致，这个时候数组就会优于容器，成为首选。</p>
+<h3 id="为什么数组要从-0-开始编号，而不是从-1-开始"><a href="#为什么数组要从-0-开始编号，而不是从-1-开始" class="headerlink" title="为什么数组要从 0  开始编号，而不是从 1 开始"></a>为什么数组要从 0  开始编号，而不是从 1 开始</h3><p>从数组存储的内存模型上来看，“下标”最确切的定义应该是“偏移”。如果用 a 来表示数组的首地址，a[0] 就是偏移为 0 的位置，也就是首地址，a[k] 就表示偏移 k 个 type_size 的位置，所以计算 a[k] 的内存地址只需要用这个公式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a[k]_address = base_address + k * type_size</div></pre></td></tr></table></figure>
+<p>如果数组从 1 开始计数，那计算数组元素 a[k] 的内存地址就会变为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a[k]_address = base_address + (k-<span class="number">1</span>) * type_size</div></pre></td></tr></table></figure>
+<p>对比两个公式，我们不难发现，从 1 开始编号，每次随机访问数组元素都多了一次减法运算，对于 CPU 来说，就是多了一次减法指令。</p>
+<p>数组作为非常基础的数据结构，通过下标随机访问数组元素又是其非常基础的编程操作，效率的优化就要尽可能做到极致。所以为了减少一次减法操作，数组选择了从 0 开始编号，而不是从 1 开始。</p>
+<h3 id="内容小结"><a href="#内容小结" class="headerlink" title="内容小结"></a>内容小结</h3><p>数组可以说是最基础、最简单的数据结构了。数组用一块连续的内存空间，来存储相同类型的一组数据，最大的特点就是支持随机访问，但插入、删除操作也因此变得比较低效，平均情况时间复杂度为 O(n)。在平时的业务开发中，我们可以直接使用编程语言提供的容器类，但是，如果是特别底层的开发，直接使用数组可能会更合适。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据结构和算法 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 数据结构和算法 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[复杂度分析(下)]]></title>
       <url>/2018/09/28/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
       <content type="html"><![CDATA[<p>复杂度分析除了<a href="https://airxiao.github.io/2018/09/26/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%8A%EF%BC%89/#more" target="_blank" rel="external">复杂度分析(上)</a>中介绍的内容，还有这四个知识点，分别是：<strong>最好情况时间复杂度</strong>、<strong>最坏情况时间复杂度</strong>、<strong>平均情况时间复杂度</strong>、<strong>均摊时间复杂度</strong>。</p>
