@@ -90,20 +90,27 @@
 
 
 
-<meta name="description" content="复杂度分析除了复杂度分析(上)中介绍的内容，还有这四个知识点，分别是：最好情况时间复杂度、最坏情况时间复杂度、平均情况时间复杂度、均摊时间复杂度。">
+<meta name="description" content="先进先出是队列的典型表现，其具有入队和出队两个基本操作。">
 <meta name="keywords" content="数据结构和算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="复杂度分析(下)">
-<meta property="og:url" content="http://yoursite.com/2018/09/28/复杂度分析（下）/index.html">
+<meta property="og:title" content="队列">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/队列/index.html">
 <meta property="og:site_name" content="其实我们很渺小">
-<meta property="og:description" content="复杂度分析除了复杂度分析(上)中介绍的内容，还有这四个知识点，分别是：最好情况时间复杂度、最坏情况时间复杂度、平均情况时间复杂度、均摊时间复杂度。">
-<meta property="og:image" content="https://static001.geekbang.org/resource/image/36/7f/36c0aabdac69032f8a43368f5e90c67f.jpg">
-<meta property="og:image" content="https://static001.geekbang.org/resource/image/6d/ed/6df62366a60336d9de3bc34f488d8bed.jpg">
-<meta property="og:updated_time" content="2018-09-28T14:54:55.000Z">
+<meta property="og:description" content="先进先出是队列的典型表现，其具有入队和出队两个基本操作。">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/9e/3e/9eca53f9b557b1213c5d94b94e9dce3e.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/5c/cb/5c0ec42eb797e8a7d48c9dbe89dc93cb.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/de/0d/dea27f2c505dd8d0b6b86e262d03430d.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/09/c7/094ba7722eeec46ead58b40c097353c7.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/58/90/58ba37bb4102b87d66dffe7148b0f990.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/71/80/71a41effb54ccea9dd463bde1b6abe80.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/3d/ec/3d81a44f8c42b3ceee55605f9aeedcec.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/5e/eb/5ef3326181907dea0964f612890185eb.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/9f/67/9f539cc0f1edc20e7fa6559193898067.jpg">
+<meta property="og:updated_time" content="2018-10-11T13:43:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="复杂度分析(下)">
-<meta name="twitter:description" content="复杂度分析除了复杂度分析(上)中介绍的内容，还有这四个知识点，分别是：最好情况时间复杂度、最坏情况时间复杂度、平均情况时间复杂度、均摊时间复杂度。">
-<meta name="twitter:image" content="https://static001.geekbang.org/resource/image/36/7f/36c0aabdac69032f8a43368f5e90c67f.jpg">
+<meta name="twitter:title" content="队列">
+<meta name="twitter:description" content="先进先出是队列的典型表现，其具有入队和出队两个基本操作。">
+<meta name="twitter:image" content="https://static001.geekbang.org/resource/image/9e/3e/9eca53f9b557b1213c5d94b94e9dce3e.jpg">
 
 
 
@@ -131,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/28/复杂度分析（下）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/10/队列/"/>
 
 
 
 
 
-  <title>复杂度分析(下) | 其实我们很渺小</title>
+  <title>队列 | 其实我们很渺小</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/复杂度分析（下）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="airxiao">
@@ -331,7 +338,7 @@
             
             
               
-                复杂度分析(下)
+                队列
               
             
           </h1>
@@ -346,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T21:10:56+08:00">
-                2018-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T20:17:25+08:00">
+                2018-10-10
               </time>
             
 
@@ -408,35 +415,45 @@
       
 
       
-        <p>复杂度分析除了<a href="https://airxiao.github.io/2018/09/26/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%8A%EF%BC%89/#more" target="_blank" rel="external">复杂度分析(上)</a>中介绍的内容，还有这四个知识点，分别是：<strong>最好情况时间复杂度</strong>、<strong>最坏情况时间复杂度</strong>、<strong>平均情况时间复杂度</strong>、<strong>均摊时间复杂度</strong>。</p>
+        <p>先进先出是队列的典型表现，其具有入队和出队两个基本操作。</p>
 <a id="more"></a>
-<h3 id="最好、最坏情况时间复杂度"><a href="#最好、最坏情况时间复杂度" class="headerlink" title="最好、最坏情况时间复杂度"></a>最好、最坏情况时间复杂度</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// n 表示数组 array 的长度</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> n, <span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> pos = -<span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (; i &lt; n; ++i) &#123;</div><div class="line">    <span class="keyword">if</span> (array[i] == x) &#123;</div><div class="line">       pos = i;</div><div class="line">       <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> pos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码的执行时间和变量 x 有关，变量 x 可能出现在数组的任意位置。如果数组中第一个元素正好是要查找的变量 x，那就不需要继续遍历剩下的 n-1 个数据了，那时间复杂度就是 O(1)。但如果数组中不存在变量 x，那我们就需要把整个数组都遍历一遍，时间复杂度就成了 O(n)。不同的情况下，这段代码的时间复杂度是不一样的。</p>
-<p>最好情况时间复杂度就是，在最理想的情况下，执行这段代码的时间复杂度。就如上面代码中要查找的变量 x 正好在数组的第一个元素，这时候的时间复杂度就是最好情况时间复杂度。</p>
-<p>同理，最坏情况时间复杂度就是，在最糟糕的情况，执行这段代码的时间复杂度。就如上面代码的数组中没有要查找的变量 x，这时候要把整个数组都便利一遍才行，这种情况下对应的就是最坏情况时间复杂度。</p>
-<h3 id="平均情况时间复杂度"><a href="#平均情况时间复杂度" class="headerlink" title="平均情况时间复杂度"></a>平均情况时间复杂度</h3><p>最好情况时间复杂度和最坏情况时间复杂度对应的都是极端情况下的都是极端情况下的代码复杂度，发生的概率其实并不大。为了更好地表示平均情况下的复杂度，我们需要引入另一个概念：平均情况时间复杂度。</p>
-<p>还是以上面的代码为例子。要查找的变量 x 要么在数组里，要么就不在数组里。这两种情况对应的概率统计起来很麻烦，为了方便理解，我们假设在数组中与不在数组中的概率都为 1/2。另外，要查找的数据出现在 0～n-1 这 n 个位置的概率也是一样的，为 1/n。所以，根据概率乘法法则，要查找的数据出现在 0～n-1 中任意位置的概率就是 1/(2n)。</p>
-<p>如果我们把每种情况发生的概率也考虑进去，那平均时间复杂度的计算过程就变成了这样：</p>
-<p><img src="https://static001.geekbang.org/resource/image/36/7f/36c0aabdac69032f8a43368f5e90c67f.jpg" alt=""></p>
-<p>这个值就是概率论中的<strong>加权平均值</strong>，也叫作<strong>期望值</strong>，所以平均时间复杂度的全称应该叫<strong>加权平均时间复杂度</strong>或者<strong>期望时间复杂度</strong>。</p>
-<p>引入概率之后，前面那段代码的加权平均值为 (3n+1)/4。用大 O 表示法来表示，去掉系数和常量，这段代码的加权平均时间复杂度仍然是 O(n)。</p>
-<p>实际上，在大多数情况下，我们并不需要区分最好、最坏、平均情况时间复杂度三种情况。只有同一块代码在不同的情况下，时间复杂度有量级的差距，才会使用这三种复杂度表示法来区分。</p>
-<h3 id="均摊时间复杂度"><a href="#均摊时间复杂度" class="headerlink" title="均摊时间复杂度"></a>均摊时间复杂度</h3><p>均摊时间复杂度，它对应的分析方法是摊还分析（或者叫平摊分析）。均摊时间复杂度，听起来跟平均时间复杂度有点儿像，这两个概念确实非常容易弄混。</p>
-<p>大部分情况下，我们并不需要区分最好、最坏、平均三种复杂度。平均复杂度只在某些特殊情况下才会用到，而均摊时间复杂度应用的场景比它更加特殊、更加有限。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// array 表示一个长度为 n 的数组</span></div><div class="line"><span class="comment">// 代码中的 array.length 就等于 n</span></div><div class="line"><span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">   <span class="keyword">if</span> (count == array.length) &#123;</div><div class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; ++i) &#123;</div><div class="line">         sum = sum + array[i];</div><div class="line">      &#125;</div><div class="line">      array[<span class="number">0</span>] = sum;</div><div class="line">      count = <span class="number">1</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   array[count] = val;</div><div class="line">   ++count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码实现了一个往数组中插入数据的功能。当数组满了之后，也就是代码中的 count == array.length 时，我们用 for 循环遍历数组求和，将求和之后的 sum 值放到数组的第一个位置，然后再将新的数据插入。但如果数组一开始就有空闲空间，则直接将数据插入数组。</p>
-<p>我们用刚讲到的三种时间复杂度的分析方法来分析一下。</p>
-<p>最理想的情况下，数组中有空闲空间，我们只需要将数据插入到数组下标为 count 的位置就可以了，所以最好情况时间复杂度为 O(1)。最坏的情况下，数组中没有空闲空间了，我们需要先做一次数组的遍历求和，然后再将数据插入，所以最坏情况时间复杂度为 O(n)。</p>
-<p>我们再通过概率论的方法来分析下平均时间复杂度。</p>
-<p>假设数组的长度是 n，在数组有空闲空间可以插入的时候，根据数据插入的位置的不同，我们可以分为 n 种情况，每种情况的时间复杂度是 O(1)。除此之外,在数组没有空闲空间时插入一个数据，这个时候的时间复杂度是 O(n)。而且，这 n+1 种情况发生的概率一样，都是 1/(n+1)。所以，根据加权平均的计算方法，我们求得的平均时间复杂度就是：</p>
-<p><img src="https://static001.geekbang.org/resource/image/6d/ed/6df62366a60336d9de3bc34f488d8bed.jpg" alt=""></p>
-<p>对于 insert() 函数来说，O(1) 时间复杂度的插入和 O(n) 时间复杂度的插入，出现的频率是非常有规律的，而且有一定的前后时序关系，一般都是一个 O(n) 插入之后，紧跟着 n-1 个 O(1) 的插入操作，循环往复。</p>
-<p>针对这种特殊的场景，我们引入了一种更加简单的分析方法：<strong>摊还分析法</strong>，通过摊还分析得到的时间复杂度我们起了一个名字，叫<strong>均摊时间复杂度</strong>。</p>
-<h4 id="使用摊还分析法来分析算法的均摊时间复杂度："><a href="#使用摊还分析法来分析算法的均摊时间复杂度：" class="headerlink" title="使用摊还分析法来分析算法的均摊时间复杂度："></a>使用摊还分析法来分析算法的均摊时间复杂度：</h4><p>还是以上面的代码为例子。每一次 O(n) 的插入操作，都会跟着 n-1 次 O(1) 的插入操作，所以把耗时多的那次操作均摊到接下来的 n-1 次耗时少的操作上，均摊下来，这一组连续的操作的均摊时间复杂度就是 O(1)。这就是均摊分析的大致思路。</p>
-<p>均摊时间复杂度和摊还分析应用场景比较特殊，所以我们并不会经常用到。总结一下它们的应用场景就是：</p>
-<p>对一个数据结构进行一组连续操作中，大部分情况下时间复杂度都很低，只有个别情况下时间复杂度比较高，而且这些操作之间存在前后连贯的时序关系，这个时候，我们就可以将这一组操作放在一块儿分析，看是否能将较高时间复杂度那次操作的耗时，平摊到其他那些时间复杂度比较低的操作上。而且，在能够应用均摊时间复杂度分析的场合，一般均摊时间复杂度就等于最好情况时间复杂度。</p>
-<p><strong>均摊时间复杂度就是一种特殊的平均时间复杂度</strong>，没必要花太多精力去区分它们。我们最应该掌握的是它的分析方法，摊还分析。至于分析出来的结果是叫平均还是叫均摊，这只是个说法，并不重要。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>最好情况时间复杂度、最坏情况时间复杂度、平均情况时间复杂度、均摊时间复杂度，之所以有这样的区分是因为同一段代码，在不同输入的情况下，复杂度量级有可能是不一样的。有了这几个概念后，我们可以更加全面地表示一段代码的执行效率。</p>
+<p>入队就是放一个数据到队列尾部，出队就是从队列头部取出一个元素。由于其只能从一段进入，另一端出去，所以队列也是一种操作受限的线性表数据结构。</p>
+<p><img src="https://static001.geekbang.org/resource/image/9e/3e/9eca53f9b557b1213c5d94b94e9dce3e.jpg" alt=""></p>
+<h3 id="顺序队列和链式队列"><a href="#顺序队列和链式队列" class="headerlink" title="顺序队列和链式队列"></a>顺序队列和链式队列</h3><p>用数组实现的队列叫作顺序队列，用链表实现的队列叫作链式队列。</p>
+<p>下面这段代码是一个基于数组实现的队列。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 用数组实现的队列</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayQueue</span> </span>&#123;</div><div class="line">  <span class="comment">// 数组：items，数组大小：n</span></div><div class="line">  <span class="keyword">private</span> String[] items;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> n = <span class="number">0</span>;</div><div class="line">  <span class="comment">// head 表示队头下标，tail 表示队尾下标</span></div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> head = <span class="number">0</span>;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> tail = <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 申请一个大小为 capacity 的数组</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ArrayQueue</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</div><div class="line">    items = <span class="keyword">new</span> String[capacity];</div><div class="line">    n = capacity;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 入队</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">enqueue</span><span class="params">(String item)</span> </span>&#123;</div><div class="line">    <span class="comment">// 如果 tail == n 表示队列已经满了</span></div><div class="line">    <span class="keyword">if</span> (tail == n) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    items[tail] = item;</div><div class="line">    ++tail;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 出队</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">dequeue</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// 如果 head == tail 表示队列为空</span></div><div class="line">    <span class="keyword">if</span> (head == tail) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="comment">// 为了让其他语言的同学看的更加明确，把 -- 操作放到单独一行来写了</span></div><div class="line">    String ret = items[head];</div><div class="line">    ++head;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>队列需要两个指针：一个是 head 指针，指向队头；一个是 tail 指针，指向队尾。</p>
+<p>下面这幅图中，当 a、b、c、d 依次入队之后，队列中的 head 指针指向下标为 0 的位置，tail 指针指向下标为 4 的位置。</p>
+<p><img src="https://static001.geekbang.org/resource/image/5c/cb/5c0ec42eb797e8a7d48c9dbe89dc93cb.jpg" alt=""></p>
+<p>当我们调用两次出队操作之后，队列中 head 指针指向下标为 2 的位置，tail 指针仍然指向下标为 4 的位置。</p>
+<p><img src="https://static001.geekbang.org/resource/image/de/0d/dea27f2c505dd8d0b6b86e262d03430d.jpg" alt=""></p>
+<p>可以发现，当不断向队列中添加数据，tail 指针会不断向右移动，即使数组中还有空闲空间，也无法往队列中继续添加了。这时候只要对数据进行搬移操作就可以解决这个问题了，具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// 入队操作，将 item 放入队尾</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">enqueue</span><span class="params">(String item)</span> </span>&#123;</div><div class="line">  <span class="comment">// tail == n 表示队列末尾没有空间了</span></div><div class="line">  <span class="keyword">if</span> (tail == n) &#123;</div><div class="line">    <span class="comment">// tail ==n &amp;&amp; head==0，表示整个队列都占满了</span></div><div class="line">    <span class="keyword">if</span> (head == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="comment">// 数据搬移</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head; i &lt; tail; ++i) &#123;</div><div class="line">      items[i-head] = items[i];</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 搬移完之后重新更新 head 和 tail</span></div><div class="line">    tail -= head;</div><div class="line">    head = <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  items[tail] = item;</div><div class="line">  ++tail;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当队列的 tail 指针移动到数组的最右边后，如果有新的数据入队，我们可以将 head 到 tail 之间的数据，整体搬移到数组中 0 到 tail-head 的位置。</p>
+<p><img src="https://static001.geekbang.org/resource/image/09/c7/094ba7722eeec46ead58b40c097353c7.jpg" alt=""></p>
+<h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><p>用数组来实现队列的时候，在 tail==n 时，会有数据搬移操作，这样入队操作性能就会受到影响。当使用循环队列的话就可以避免数据搬移了。</p>
+<p><img src="https://static001.geekbang.org/resource/image/58/90/58ba37bb4102b87d66dffe7148b0f990.jpg" alt=""></p>
+<p>上图就是一个循环队列。这个队列的大小为 8，当前 head=4，tail=7。当有一个新的元素 a 入队时，我们放入下标为 7 的位置。但这个时候，我们并不把 tail 更新为 8，而是将其在环中后移一位，到下标为 0 的位置。当再有一个元素 b 入队时，我们将 b 放入下标为 0 的位置，然后 tail 加 1 更新为 1。所以，在 a，b 依次入队之后，循环队列中的元素就变成了下面的样子：</p>
+<p><img src="https://static001.geekbang.org/resource/image/71/80/71a41effb54ccea9dd463bde1b6abe80.jpg" alt=""></p>
+<p>通过这样的方法，我们成功避免了数据搬移操作。循环队列功能强大，但是实现难度也大多了，最关键的地方在于要<strong>确定好队空和队满的判定条件</strong>。</p>
+<p>队列为空的判断条件仍然是 head == tail。但队列满的判断条件就稍微有点复杂了。</p>
+<p><img src="https://static001.geekbang.org/resource/image/3d/ec/3d81a44f8c42b3ceee55605f9aeedcec.jpg" alt=""></p>
+<p>上图中的队满的情况中，tail=3，head=4，n=8，所以总结一下规律就是：(3+1)%8=4。多画几张队满的图，你就会发现，当队满时，<strong>(tail+1)%n=head</strong>。当队列满时，图中的 tail 指向的位置实际上是没有存储数据的。所以，循环队列会浪费一个数组的存储空间。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CircularQueue</span> </span>&#123;</div><div class="line">  <span class="comment">// 数组：items，数组大小：n</span></div><div class="line">  <span class="keyword">private</span> String[] items;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> n = <span class="number">0</span>;</div><div class="line">  <span class="comment">// head 表示队头下标，tail 表示队尾下标</span></div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> head = <span class="number">0</span>;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> tail = <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 申请一个大小为 capacity 的数组</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">CircularQueue</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</div><div class="line">    items = <span class="keyword">new</span> String[capacity];</div><div class="line">    n = capacity;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 入队</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">enqueue</span><span class="params">(String item)</span> </span>&#123;</div><div class="line">    <span class="comment">// 队列满了</span></div><div class="line">    <span class="keyword">if</span> ((tail + <span class="number">1</span>) % n == head) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    items[tail] = item;</div><div class="line">    tail = (tail + <span class="number">1</span>) % n;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 出队</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">dequeue</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// 如果 head == tail 表示队列为空</span></div><div class="line">    <span class="keyword">if</span> (head == tail) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    String ret = items[head];</div><div class="line">    head = (head + <span class="number">1</span>) % n;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="阻塞队列和并发队列"><a href="#阻塞队列和并发队列" class="headerlink" title="阻塞队列和并发队列"></a>阻塞队列和并发队列</h3><p><strong>阻塞队列</strong>其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。因为此时还没有数据可取，直到队列中有了数据才能返回；如果队列已经满了，那么插入数据的操作就会被阻塞，直到队列中有空闲位置后再插入数据，然后再返回。</p>
+<p><img src="https://static001.geekbang.org/resource/image/5e/eb/5ef3326181907dea0964f612890185eb.jpg" alt=""></p>
+<p>可以发现，这是一个“生产者 - 消费者模型”！通过阻塞队列，我们轻松实现一个“生产者 - 消费者模型”！</p>
+<p>这种基于阻塞队列实现的“生产者 - 消费者模型”，可以有效地协调生产和消费的速度。当“生产者”生产数据的速度过快，“消费者”来不及消费时，存储数据的队列很快就会满了。这个时候，生产者就阻塞等待，直到“消费者”消费了数据，“生产者”才会被唤醒继续“生产”。</p>
+<p>基于阻塞队列，我们还可以通过协调“生产者”和“消费者”的个数，来提高数据的处理效率。比如可以多配置几个“消费者”，来应对一个“生产者”。</p>
+<p><img src="https://static001.geekbang.org/resource/image/9f/67/9f539cc0f1edc20e7fa6559193898067.jpg" alt=""></p>
+<p>线程安全的队列我们叫作<strong>并发队列</strong>。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。</p>
+<h3 id="队列在线程池中的应用"><a href="#队列在线程池中的应用" class="headerlink" title="队列在线程池中的应用"></a>队列在线程池中的应用</h3><p>当线程池没有空闲线程时，新的任务请求线程资源时，线程池该如何处理呢？</p>
+<p>我们一般有两种处理策略。第一种是非阻塞的处理方式，直接拒绝任务请求；另一种是阻塞的处理方式，将请求排队，等到有空闲线程时，取出排队的请求继续处理。</p>
+<p>队列有基于链表和数组两种实现方式，这两种实现方式对于排队请求的影响是不同的。</p>
+<p>基于链表的实现方式，可以实现一个支持无限排队的无界队列，但是可能会导致过多的请求排队等待，请求处理的响应时间过长；而基于数组实现的有界队列，队列的大小有限，所以线程池中排队的请求超过队列大小时，接下来的请求就会被拒绝。</p>
+<p>除了应用在线程池请求排队的场景之外，队列可以应用在任何有限资源池中，用于排队请求，比如数据库连接池等。<strong>对于大部分资源有限的场景，当没有空闲资源时，基本上都可以通过“队列”这种数据结构来实现请求排队</strong>。</p>
+<h3 id="内容小结"><a href="#内容小结" class="headerlink" title="内容小结"></a>内容小结</h3><p>队列最大的特点就是先进先出，主要的两个操作是入队和出队。它既可以用数组来实现，也可以用链表来实现。用数组实现的叫顺序队列，用链表实现的叫链式队列。在数组实现队列的时候，会有数据搬移操作，要想解决数据搬移的问题，我们就需要像环一样的循环队列。循环队列的代码实现关键在于要确定好队空和队满的判定条件。</p>
+<p>阻塞队列就是入队、出队操作可以阻塞，并发队列就是队列的操作多线程安全。</p>
 
       
     </div>
@@ -479,18 +496,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/06/数组/" rel="next" title="数组">
-                <i class="fa fa-chevron-left"></i> 数组
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/26/复杂度分析（上）/" rel="prev" title="复杂度分析（上）">
-                复杂度分析（上） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/08/栈/" rel="prev" title="栈">
+                栈 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最好、最坏情况时间复杂度"><span class="nav-number">1.</span> <span class="nav-text">最好、最坏情况时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平均情况时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">平均情况时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均摊时间复杂度"><span class="nav-number">3.</span> <span class="nav-text">均摊时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用摊还分析法来分析算法的均摊时间复杂度："><span class="nav-number">3.1.</span> <span class="nav-text">使用摊还分析法来分析算法的均摊时间复杂度：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序队列和链式队列"><span class="nav-number">1.</span> <span class="nav-text">顺序队列和链式队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环队列"><span class="nav-number">2.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞队列和并发队列"><span class="nav-number">3.</span> <span class="nav-text">阻塞队列和并发队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列在线程池中的应用"><span class="nav-number">4.</span> <span class="nav-text">队列在线程池中的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容小结"><span class="nav-number">5.</span> <span class="nav-text">内容小结</span></a></li></ol></div>
             
 
           </div>
